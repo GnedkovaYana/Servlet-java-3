@@ -25,12 +25,10 @@
     <%=new SimpleDateFormat("dd/MM/yyyy, HH:mm:ss").format(new Date())%>
     <h1><%=path%></h1>
     <p>
-        <tr><th><img src="Up.png"></th>
         <td><a href="?path=<%=java.net.URLEncoder.encode(parentDirectoryPath, "UTF-8")%>">Вверх</a></td>
     </p>
     <table>
         <tr>
-            <th></th>
             <th><b>Файл</b></th>
             <th><b>Размер</b></th>
             <th><b>Дата</b></th>
@@ -40,7 +38,6 @@
             for (File directory : directories) {
         %>
         <tr>
-            <th><img src="folder.png"></th>
             <th><a href="?path=<%=java.net.URLEncoder.encode(directory.getAbsolutePath(), "UTF-8")%>"><%=directory.getName() + "/"%></a></th>
             <th></th>
             <th><%=new SimpleDateFormat("dd/MM/yyyy, HH:mm:ss").format(new Date(directory.lastModified()))%></th>
@@ -51,7 +48,6 @@
             for (File file : files) {
         %>
         <tr>
-            <tr><th><img src="file.png"></th>
             <th><a href="download?path=<%=java.net.URLEncoder.encode(file.getAbsolutePath(), "UTF-8")%>"><%=file.getName()%></a></th>
             <th><%=file.length() + " B"%></th>
             <th><%=new SimpleDateFormat("dd/MM/yyyy, HH:mm:ss").format(new Date(file.lastModified()))%></th>
